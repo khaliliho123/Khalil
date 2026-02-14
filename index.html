@@ -3,49 +3,72 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Portfolio</title>
+  <title>Khalil | Editor & Creator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
+  <nav>
+    <div class="nav-container">
+      <div class="logo">KHALIL<span>.</span></div>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Work</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
   <header>
-    <h1>Khalil</h1>
-    <p>Editor • Content Creator • Student</p>
+    <div class="hero-content">
+      <h1>Khalil</h1>
+      <p class="tagline">Editor • Content Creator • Engineer</p>
+      <a href="#projects" class="btn">View My Work</a>
+    </div>
   </header>
 
-  <section class="about">
-    <h2>About Me</h2>
-    <p>
-      I’m a passionate editor and content creator who loves clean visuals,
-      storytelling, and creative projects. I also study engineering and work on tech projects.
-    </p>
-  </section>
+  <main>
+    <section id="about" class="about">
+      <h2>About Me</h2>
+      <div class="about-card">
+        <p>
+          I’m a passionate editor and content creator dedicated to <strong>storytelling</strong> through clean visuals. 
+          Currently balancing the world of engineering with high-energy creative projects, specializing in anime edits and short-form social content.
+        </p>
+      </div>
+    </section>
 
-  <section class="projects">
-    <h2>Projects</h2>
+    <section id="projects" class="projects">
+      <h2>Featured Projects</h2>
+      <div class="video-grid">
+        <div class="video-card">
+          <iframe src="https://www.youtube.com/embed/fkgRaFFH06I" title="Video 1" allowfullscreen></iframe>
+          <div class="video-info"><h3>Anime Edit</h3></div>
+        </div>
+        <div class="video-card">
+          <iframe src="https://www.youtube.com/embed/D4KANorMRqI" title="Video 2" allowfullscreen></iframe>
+          <div class="video-info"><h3>Short Form</h3></div>
+        </div>
+        <div class="video-card">
+          <iframe src="https://www.youtube.com/embed/QrVfpfqOnfE" title="Video 3" allowfullscreen></iframe>
+          <div class="video-info"><h3>Creative Motion</h3></div>
+        </div>
+      </div>
+    </section>
 
-    <div class="project">
-      <h3>Video Editing</h3>
-      <p>Anime edits, TikTok & YouTube content.</p>
-    </div>
-
-    <div class="video-grid">
-      <iframe src="https://www.youtube.com/embed/fkgRaFFH06I" title="Video 1" allowfullscreen></iframe>
-      <iframe src="https://www.youtube.com/embed/D4KANorMRqI" title="Video 2" allowfullscreen></iframe>
-      <iframe src="https://www.youtube.com/embed/QrVfpfqOnfE" title="Video 3" allowfullscreen></iframe>
-    </div>
-  </section>
-
-  <section class="contact">
-    <h2>Contact</h2>
-    <p>Email: khalilfreelance0@gmail.com</p>
-    <p>Instagram: @lil.katim</p>
-  </section>
+    <section id="contact" class="contact">
+      <h2>Let's Collaborate</h2>
+      <div class="contact-container">
+        <a href="mailto:khalilfreelance0@gmail.com" class="contact-item">Email Me</a>
+        <a href="https://instagram.com/lil.katim" target="_blank" class="contact-item">Instagram</a>
+      </div>
+    </section>
+  </main>
 
   <footer>
-    <p>© 2026 Khalil. All rights reserved.</p>
+    <p>© 2026 Khalil. Built with passion.</p>
   </footer>
 
 </body>
 </html>
-
