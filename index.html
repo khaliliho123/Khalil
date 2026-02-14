@@ -1,73 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Khalil | Editor & Creator</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Khalil | Creative Editor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <nav>
-    <div class="nav-container">
+    <div class="container nav-flex">
       <div class="logo">KHALIL<span>.</span></div>
       <ul>
         <li><a href="#about">About</a></li>
-        <li><a href="#projects">Work</a></li>
+        <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
   </nav>
 
-  <header>
+  <header class="hero">
     <div class="hero-content">
-      <h1>Khalil</h1>
-      <p class="tagline">Editor • Content Creator • Engineer</p>
+      <h1>KHALIL</h1>
+      <p>Visual Storyteller • Video Editor • Engineer</p>
       <a href="#projects" class="btn">View My Work</a>
     </div>
   </header>
 
-  <main>
-    <section id="about" class="about">
+  <section id="about" class="container">
+    <div class="section-title">
       <h2>About Me</h2>
-      <div class="about-card">
-        <p>
-          I’m a passionate editor and content creator dedicated to <strong>storytelling</strong> through clean visuals. 
-          Currently balancing the world of engineering with high-energy creative projects, specializing in anime edits and short-form social content.
-        </p>
-      </div>
-    </section>
+      <div class="underline"></div>
+    </div>
+    <div class="about-card">
+      <p>
+        I am a passionate editor and content creator focused on high-impact visuals. 
+        Whether it's <strong>Anime Edits</strong>, <strong>Social Media Content</strong>, or <strong>Technical Projects</strong>, 
+        I bridge the gap between engineering precision and creative storytelling.
+      </p>
+    </div>
+  </section>
 
-    <section id="projects" class="projects">
-      <h2>Featured Projects</h2>
-      <div class="video-grid">
-        <div class="video-card">
+  <section id="projects" class="container">
+    <div class="section-title">
+      <h2>Featured Work</h2>
+      <div class="underline"></div>
+    </div>
+    <div class="video-grid">
+      <div class="video-card">
+        <div class="iframe-container">
           <iframe src="https://www.youtube.com/embed/fkgRaFFH06I" title="Video 1" allowfullscreen></iframe>
-          <div class="video-info"><h3>Anime Edit</h3></div>
         </div>
-        <div class="video-card">
+        <div class="video-info">
+          <h3>Anime Aesthetic</h3>
+          <p>Motion Graphics & Editing</p>
+        </div>
+      </div>
+      <div class="video-card">
+        <div class="iframe-container">
           <iframe src="https://www.youtube.com/embed/D4KANorMRqI" title="Video 2" allowfullscreen></iframe>
-          <div class="video-info"><h3>Short Form</h3></div>
         </div>
-        <div class="video-card">
+        <div class="video-info">
+          <h3>Content Creation</h3>
+          <p>Short Form Storytelling</p>
+        </div>
+      </div>
+      <div class="video-card">
+        <div class="iframe-container">
           <iframe src="https://www.youtube.com/embed/QrVfpfqOnfE" title="Video 3" allowfullscreen></iframe>
-          <div class="video-info"><h3>Creative Motion</h3></div>
+        </div>
+        <div class="video-info">
+          <h3>Visual Flow</h3>
+          <p>Cinematic Sequences</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="contact" class="contact">
-      <h2>Let's Collaborate</h2>
-      <div class="contact-container">
-        <a href="mailto:khalilfreelance0@gmail.com" class="contact-item">Email Me</a>
-        <a href="https://instagram.com/lil.katim" target="_blank" class="contact-item">Instagram</a>
+  <section id="contact" class="container">
+    <div class="contact-box">
+      <h2>Let's Work Together</h2>
+      <p>Ready to bring your vision to life?</p>
+      <div class="contact-links">
+        <a href="mailto:khalilfreelance0@gmail.com" class="contact-btn">Email Me</a>
+        <a href="https://instagram.com/lil.katim" target="_blank" class="contact-btn outline">Instagram</a>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
   <footer>
-    <p>© 2026 Khalil. Built with passion.</p>
+    <p>&copy; 2026 Khalil. All rights reserved.</p>
   </footer>
 
 </body>
