@@ -1,10 +1,10 @@
-/* Custom Variables */
+/* Custom Variables *//* 1. SETUP & VARIABLES */
 :root {
-  --bg-dark: #0f0f12;
-  --bg-card: #1a1a20;
-  --accent: #00d4ff; /* Electric Blue */
-  --text-main: #ffffff;
-  --text-dim: #b0b0b0;
+  --primary: #00d4ff;    /* Your accent color */
+  --bg-dark: #0a0a0c;    /* Deep black background */
+  --bg-card: #16161a;    /* Slightly lighter card background */
+  --text-white: #ffffff;
+  --text-gray: #a0a0a5;
   --transition: all 0.3s ease;
 }
 
@@ -12,36 +12,43 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+}
+
+html {
   scroll-behavior: smooth;
 }
 
 body {
+  font-family: 'Poppins', sans-serif;
   background-color: var(--bg-dark);
-  color: var(--text-main);
+  color: var(--text-white);
   line-height: 1.6;
-  overflow-x: hidden;
 }
 
-/* Navigation */
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 80px 20px;
+}
+
+/* 2. NAVIGATION */
 nav {
+  background: rgba(10, 10, 12, 0.95);
+  backdrop-filter: blur(10px);
   padding: 20px 0;
   position: fixed;
   width: 100%;
   top: 0;
-  background: rgba(15, 15, 18, 0.9);
-  backdrop-filter: blur(10px);
   z-index: 1000;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.nav-container {
-  max-width: 1100px;
-  margin: auto;
+.nav-flex {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 .logo {
@@ -50,82 +57,85 @@ nav {
   letter-spacing: 2px;
 }
 
-.logo span { color: var(--accent); }
+.logo span { color: var(--primary); }
 
-nav ul { display: flex; list-style: none; }
+nav ul {
+  display: flex;
+  list-style: none;
+}
 
 nav ul li a {
-  color: var(--text-main);
+  color: var(--text-white);
   text-decoration: none;
   margin-left: 30px;
   font-size: 0.9rem;
-  font-weight: 500;
   transition: var(--transition);
 }
 
-nav ul li a:hover { color: var(--accent); }
+nav ul li a:hover { color: var(--primary); }
 
-/* Header / Hero */
-header {
-  height: 80vh;
+/* 3. HERO SECTION */
+.hero {
+  height: 100vh;
+  background: radial-gradient(circle at center, #1a1a2e 0%, #0a0a0c 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: radial-gradient(circle at center, #1e1e26 0%, #0f0f12 100%);
 }
 
-h1 {
-  font-size: 5rem;
-  font-weight: 700;
-  margin-bottom: 10px;
+.hero h1 {
+  font-size: clamp(3rem, 10vw, 6rem);
   letter-spacing: -2px;
+  margin-bottom: 10px;
 }
 
-.tagline {
+.hero p {
+  color: var(--text-gray);
   font-size: 1.2rem;
-  color: var(--text-dim);
   margin-bottom: 30px;
 }
 
 .btn {
-  padding: 12px 30px;
-  border: 2px solid var(--accent);
-  color: var(--accent);
+  padding: 12px 35px;
+  border: 2px solid var(--primary);
+  color: var(--primary);
   text-decoration: none;
   border-radius: 50px;
-  transition: var(--transition);
   font-weight: 600;
+  transition: var(--transition);
 }
 
 .btn:hover {
-  background: var(--accent);
+  background: var(--primary);
   color: #000;
-  box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
 }
 
-/* Sections */
-section {
-  padding: 100px 20px;
-  max-width: 1100px;
-  margin: auto;
-}
-
-h2 {
-  font-size: 2.5rem;
-  margin-bottom: 40px;
+/* 4. SECTION STYLES */
+.section-title {
   text-align: center;
+  margin-bottom: 50px;
+}
+
+.underline {
+  width: 50px;
+  height: 4px;
+  background: var(--primary);
+  margin: 10px auto;
 }
 
 .about-card {
   background: var(--bg-card);
   padding: 40px;
   border-radius: 20px;
-  border: 1px solid rgba(255,255,255,0.05);
   text-align: center;
+  max-width: 800px;
+  margin: auto;
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* Video Grid */
+/* 5. VIDEO GRID */
 .video-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -137,57 +147,76 @@ h2 {
   border-radius: 15px;
   overflow: hidden;
   transition: var(--transition);
-  border: 1px solid rgba(255,255,255,0.05);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .video-card:hover {
   transform: translateY(-10px);
-  border-color: var(--accent);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  border-color: var(--primary);
 }
 
-.video-grid iframe {
+.iframe-container {
+  position: relative;
   width: 100%;
-  aspect-ratio: 16 / 9; /* Standard cinematic ratio */
-  border: none;
-  display: block;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio */
 }
 
-/* For TikTok/Vertical videos, use this class specifically if needed */
-/* .vertical { aspect-ratio: 9 / 16; } */
+.iframe-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
 
-.video-info { padding: 20px; text-align: center; }
+.video-info {
+  padding: 20px;
+}
 
-/* Contact */
-.contact-container {
+.video-info h3 { font-size: 1.1rem; margin-bottom: 5px; }
+.video-info p { color: var(--text-gray); font-size: 0.9rem; }
+
+/* 6. CONTACT & FOOTER */
+.contact-box {
+  background: linear-gradient(135deg, #16161a 0%, #00d4ff22 100%);
+  padding: 60px;
+  border-radius: 30px;
+  text-align: center;
+}
+
+.contact-links {
+  margin-top: 30px;
   display: flex;
   justify-content: center;
   gap: 20px;
 }
 
-.contact-item {
-  color: var(--text-main);
+.contact-btn {
+  padding: 12px 25px;
+  background: var(--primary);
+  color: #000;
   text-decoration: none;
-  padding: 15px 25px;
-  background: var(--bg-card);
   border-radius: 10px;
-  transition: var(--transition);
+  font-weight: 600;
 }
 
-.contact-item:hover {
-  background: var(--accent);
-  color: #000;
+.contact-btn.outline {
+  background: transparent;
+  border: 1px solid var(--text-gray);
+  color: var(--text-white);
 }
 
 footer {
   text-align: center;
   padding: 40px;
-  color: var(--text-dim);
+  color: var(--text-gray);
   font-size: 0.8rem;
 }
 
-/* Responsive */
+/* MOBILE RESPONSIVENESS */
 @media (max-width: 768px) {
-  h1 { font-size: 3.5rem; }
-  nav ul { display: none; } /* Simplified for mobile */
+  nav ul { display: none; }
+  .hero h1 { font-size: 3.5rem; }
+  .contact-links { flex-direction: column; }
 }
