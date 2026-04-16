@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Secret Surprise 💖</title>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Poppins:wght@300;400;600&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
+    <style>
+        /* Deep Cinematic Lighting Background */
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Poppins', sans-serif;
+            background: radial-gradient(circle at center, #3a1c71 0%, #d76d77 50%, #ffaf7b 100%);
+            background-size: 300% 300%;
+            animation: breathe 12s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
+            color: #fff;
+            overflow: hidden;
+            perspective: 1000px;
+        }
+
+        @keyframes breathe {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        /* Frosted Glass UI with Cinematic Vignette */
+        .glass-panel {
+            background: rgba(20, 10, 30, 0.4);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            border-left: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 30px;
+            padding: 50px 40px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(255,255,255,0.05);
+            width: 100%;
+            max-width: 420px;
+            position: relative;
+            min-height: 480px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* 3D Screen Transitions */
+        .screen {
+            position: absolute;
+            width: 85%;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateZ(-100px) translateY(30px) rotateX(-5deg);
+            transition: all 0.5s cubic-bezier(0.25, 1, 0.1, 1);
+        }
+
+        .screen.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateZ(0) translateY(0) rotateX(0);
+            position: relative;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            margin-bottom: 5px;
+            letter-spacing: 1.5px;
+            text-shadow: 0 4px 15px rgba(255, 255, 255, 0.4);
+        }
+
+        p {
+            font-weight: 300;
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.85);
+            letter-spacing: 0.5px;
+        }
+
+        /* Loading Spinner Animation */
+        .loader {
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-top: 4px solid #ffaf7b;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+            margin: 30px auto;
+            box-shadow: 0 0 15px rgba(255, 175, 123, 0.4);
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Passcode Input */
+        .password-display {
+            font-size: 40px;
+            letter-spacing: 12px;
+            margin: 25px 0;
+            min-height: 55px;
+            font-weight: 600;
+            color: #ffaf7b;
+            text-shadow: 0 0 20px rgba(255, 175, 123, 0.6);
+        }
+
+        .keypad {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-top: 20px;
+        }
+
+        .keypad button {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 22px;
+            font-family: 'Poppins', sans-serif;
+            border-radius: 50%;
+            width: 65px;
+            height: 65px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+        }
+
+        .keypad button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.15) translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Action Buttons */
+        .btn {
+            background: linear-gradient(135deg, #d76d77 0%, #ffaf7b 100%);
+            border: none;
+            color: white;
+            padding: 14px 35px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.4s ease;
+            width: 100%;
+            box-shadow: 0 8px 25px rgba(215, 109, 119, 0.5);
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .btn:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 12px 30px rgba(255, 175, 123, 0.7);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: none;
+            margin-top: 15px;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Glowing Floating Gifts */
+        .gift-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .gift-box {
+            font-size: 50px; 
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.4));
+            animation: pulseGlow 2s infinite alternate;
+        }
+
+        @keyframes pulseGlow {
+            0% { filter: drop-shadow(0 0 10px rgba(255, 175, 123, 0.3)); transform: translateY(0); }
+            100% { filter: drop-shadow(0 0 25px rgba(255, 175, 123, 0.8)); transform: translateY(-8px); }
+        }
+
+        .gift-box:hover {
+            transform: translateY(-20px) scale(1.2) rotate(8deg);
+            animation: none;
+            filter: drop-shadow(0 20px 25px rgba(255, 175, 123, 1));
+        }
+
+        /* MAJESTIC BOUQUET STYLING */
+        .majestic-bouquet-card {
+            background: #fff;
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+            display: inline-block;
+            margin: 20px 0;
+            position: relative;
+            transform: rotate(3deg);
+            animation: floatMajestic 4s ease-in-out infinite;
+        }
+
+        .majestic-bouquet-card img {
+            width: 100%;
+            max-width: 320px;
+            border-radius: 8px;
+            display: block;
+        }
+
+        .majestic-bouquet-card::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            transform: translate(-50%, -50%);
+            border-radius: 15px;
+            box-shadow: 0 0 40px rgba(255, 175, 123, 0.4);
+            z-index: -1;
+        }
+
+        /* FLOATING LETTER & POLAROIDS */
+        .floating-letter-wrapper {
+            animation: floatSmooth 4s ease-in-out infinite;
+            margin-top: 20px;
+            position: relative;
+        }
+
+        .polaroid {
+            background: white;
+            padding: 10px 10px 25px 10px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            border-radius: 2px;
+            position: absolute;
+            width: 120px;
+            transform: rotate(-10deg) translate(-50px, -20px);
+            z-index: 1;
+        }
+
+        .polaroid img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            background: #ccc;
+        }
+
+        .polaroid-2 {
+            transform: rotate(15deg) translate(90px, 40px);
+            z-index: 2;
+        }
+
+        .love-letter {
+            background: #fdfaf6;
+            color: #333;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+            position: relative;
+            z-index: 3;
+            text-align: left;
+            font-family: 'Caveat', cursive;
+            font-size: 24px;
+            line-height: 1.4;
+            transform: rotate(-2deg);
+        }
+
+        .love-letter::before {
+            content: "📍";
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 30px;
+            filter: drop-shadow(0 5px 5px rgba(0,0,0,0.2));
+        }
+
+        @keyframes floatMajestic {
+            0% { transform: translateY(0px) rotate(3deg); }
+            50% { transform: translateY(-10px) rotate(2deg); }
+            100% { transform: translateY(0px) rotate(3deg); }
+        }
+
+        @keyframes floatSmooth {
+            0% { transform: translateY(0px) rotateZ(0deg); }
+            50% { transform: translateY(-15px) rotateZ(1deg); }
+            100% { transform: translateY(0px) rotateZ(0deg); }
+        }
+
+        /* Image and Video Content Styling */
+        .content-image {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            margin: 20px 0;
+        }
+
+        /* Professional Video Player Frame */
+        .content-video {
+            width: 100%;
+            border-radius: 16px; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5), 0 0 20px rgba(255, 175, 123, 0.2); 
+            margin: 20px 0;
+            outline: none;
+            border: 2px solid rgba(255, 255, 255, 0.2); 
+            background: #000; 
+        }
+
+        .error {
+            color: #ffaf7b;
+            font-size: 14px;
+            margin-top: 15px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+<div class="glass-panel">
+    
+    <div id="screen-loading" class="screen">
+        <h2>Just a moment...</h2>
+        <div class="loader"></div>
+        <p style="font-style: italic;">Loading magic ✨</p>
+    </div>
+
+    <div id="screen-1" class="screen active">
+        <h2>Our Code</h2>
+        <p>Unlock your surprise...</p>
+        <div class="password-display" id="password-display"></div>
+        <div class="keypad">
+            <button onclick="addNumber(1)">1</button>
+            <button onclick="addNumber(2)">2</button>
+            <button onclick="addNumber(3)">3</button>
+            <button onclick="addNumber(4)">4</button>
+            <button onclick="addNumber(5)">5</button>
+            <button onclick="addNumber(6)">6</button>
+            <button onclick="addNumber(7)">7</button>
+            <button onclick="addNumber(8)">8</button>
+            <button onclick="addNumber(9)">9</button>
+            <button onclick="clearPassword()">C</button>
+            <button onclick="addNumber(0)">0</button>
+            <button onclick="checkPassword()">OK</button>
+        </div>
+        <div class="error" id="error-msg">That's not it, my love. Try again.</div>
+    </div>
+
+    <div id="screen-2" class="screen">
+        <h2>Kantmena i3jbek</h2>
+        <p>Gadet lik wahed lhaja special liik</p>
+        <div style="font-size: 90px; margin: 20px 0; animation: floatSmooth 3s infinite;">🧸</div> 
+        <button class="btn" onclick="nextScreen(3, true, 3000)">Show Me!</button>
+        <button class="btn btn-secondary" onclick="nextScreen(5, false)">Mabghitsh 😒</button>
+    </div>
+
+    <div id="screen-3" class="screen">
+        <h2>Choose a Gift</h2>
+        <p>Pick a box to open...</p>
+        <div class="gift-container">
+            <div class="gift-box" onclick="openGift(1)">🎁</div>
+            <div class="gift-box" onclick="openGift(2)">💝</div>
+            <div class="gift-box" onclick="openGift(3)">💌</div>
+            <div class="gift-box" onclick="openGift(4)">🎬</div>
+        </div>
+    </div>
+
+    <div id="screen-4" class="screen">
+        <h2 id="gift-title">Surprise!</h2>
+        <div id="gift-content"></div>
+        <button class="btn btn-secondary" onclick="nextScreen(3, false)">Close</button>
+    </div>
+
+    <div id="screen-5" class="screen">
+        <h2 style="font-size: 26px;">Mat9ediish therbi muhihi 😈</h2>
+        <img src="dudu-dudu-bubu.gif" class="content-image" style="max-width: 200px; margin: 20px auto; display: block;" alt="Evil cute bear">
+        <button class="btn" onclick="nextScreen(2, false)">Safi rje3i hna 😂</button>
+    </div>
+
+</div>
+
+<script>
+    const CORRECT_PASSWORD = "1229"; 
+    let currentInput = "";
+
+    updatePasswordDisplay();
+
+    function nextScreen(num, useLoader = true, loaderDuration = 3000) {
+        const activeScreen = document.querySelector('.screen.active');
+        const loadingScreen = document.getElementById('screen-loading');
+        const targetScreen = document.getElementById(`screen-${num}`);
+
+        // Stop any videos that might be playing when changing screens
+        document.querySelectorAll('video').forEach(vid => vid.pause());
+
+        activeScreen.classList.remove('active');
+
+        if (useLoader) {
+            setTimeout(() => {
+                loadingScreen.classList.add('active'); 
+                
+                setTimeout(() => {
+                    loadingScreen.classList.remove('active'); 
+                    
+                    setTimeout(() => {
+                        targetScreen.classList.add('active'); 
+                    }, 500); 
+
+                }, loaderDuration); 
+
+            }, 500); 
+        } else {
+            setTimeout(() => {
+                targetScreen.classList.add('active');
+            }, 500);
+        }
+    }
+
+    function addNumber(num) {
+        if (currentInput.length < 4) {
+            currentInput += num;
+            updatePasswordDisplay();
+            document.getElementById('error-msg').style.opacity = '0';
+        }
+    }
+
+    function clearPassword() {
+        currentInput = "";
+        updatePasswordDisplay();
+        document.getElementById('error-msg').style.opacity = '0';
+    }
+
+    function updatePasswordDisplay() {
+        let displayStr = "";
+        for(let i=0; i<4; i++) {
+            if(i < currentInput.length) {
+                displayStr += "★ "; 
+            } else {
+                displayStr += "☆ ";
+            }
+        }
+        document.getElementById('password-display').innerText = displayStr.trim();
+    }
+
+    function checkPassword() {
+        if (currentInput === CORRECT_PASSWORD) {
+            nextScreen(2, true, 3000);
+        } else {
+            document.getElementById('error-msg').style.opacity = '1';
+            currentInput = "";
+            setTimeout(updatePasswordDisplay, 400); 
+        }
+    }
+
+    function openGift(giftNumber) {
+        const titleElement = document.getElementById('gift-title');
+        const contentElement = document.getElementById('gift-content');
+
+        if (giftNumber === 1) {
+            titleElement.innerText = "You & Me";
+            contentElement.innerHTML = '<img src="IMG-20260324-WA0047.jpg" class="content-image" alt="Us"><p>Distance means nothing when someone means everything.</p>'; 
+        
+        } else if (giftNumber === 2) {
+            titleElement.innerText = ""; 
+            contentElement.innerHTML = `
+                <div class="majestic-bouquet-card">
+                    <img src="Thème Marron.jpg" alt="Majestic Bouquet">
+                </div>
+                <p style="font-size: 16px; font-style: italic;">I wish I could hand these to you right now.</p>
+            `;
+        
+        } else if (giftNumber === 3) {
+            titleElement.innerText = ""; 
+            contentElement.innerHTML = `
+                <div class="floating-letter-wrapper">
+                    <div class="polaroid">
+                        <img src="IMG-20251231-WA0006.jpg" alt="Memory 1">
+                    </div>
+                    
+                    <div class="polaroid polaroid-2">
+                        <img src="https://images.unsplash.com/photo-1606253457588-4660ab933614?q=80&w=300&auto=format&fit=crop" alt="Memory 2">
+                    </div>
+
+                    <div class="love-letter">
+                        My beautiful girl,<br><br>
+                        Even with all this distance between us, you are the closest thing to my heart. I built this just to see you smile today, because your happiness is my favorite thing in the world.<br><br>
+                        I'm counting down the seconds until I can finally hold you. I love you so much.<br><br>
+                        Forever yours. ❤️
+                    </div>
+                </div>
+            `;
+            
+        } else if (giftNumber === 4) {
+            titleElement.innerText = "Just For You"; 
+            
+            // THE 4TH GIFT: SMART VIDEO PLAYER
+            // Removed "autoplay" so it doesn't play in the background. Added an ID so JS can find it.
+            contentElement.innerHTML = `
+                <video id="special-video" class="content-video" controls playsinline>
+                    <source src="lv_7464580203633823029_20260416122921.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p>A little something I made.</p>
+            `;
+
+            // Transition fade out (500ms) + loading screen (1500ms) + fade in (500ms) = 2.5s until screen is visible.
+            // We wait exactly 4000ms total, giving her a perfect 1.5 seconds to look at the screen before the video starts.
+            setTimeout(() => {
+                let myVideo = document.getElementById("special-video");
+                if (myVideo) {
+                    myVideo.play().catch(error => console.log("User must interact first to allow audio"));
+                }
+            }, 4000);
+        }
+
+        nextScreen(4, true, 1500);
+    }
+</script>
+
+</body>
+</html>
