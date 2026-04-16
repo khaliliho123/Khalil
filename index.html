@@ -1,119 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Khalil | High-Retention Video Editor</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Secret Surprise 💖</title>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Poppins:wght@300;400;600&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <nav>
-    <div class="nav-container">
-      <div class="logo">KHALIL<span>.</span></div>
-      <ul>
-        <li><a href="#about">Strategy</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#projects">Work</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+<div class="glass-panel">
+    
+    <div id="screen-loading" class="screen">
+        <h2>Just a moment...</h2>
+        <div class="loader"></div>
+        <p style="font-style: italic;">Loading magic ✨</p>
     </div>
-  </nav>
 
-  <header class="hero">
-    <div class="hero-content">
-      <h1>KHALIL</h1>
-      <p class="tagline">Short-Form Content Specialist • High-Retention Video Editor</p>
-      <a href="#projects" class="btn-main">View Results</a>
+    <div id="screen-1" class="screen active">
+        <h2>Our Code</h2>
+        <p>Unlock your surprise...</p>
+        <div class="password-display" id="password-display"></div>
+        <div class="keypad">
+            <button onclick="addNumber(1)">1</button>
+            <button onclick="addNumber(2)">2</button>
+            <button onclick="addNumber(3)">3</button>
+            <button onclick="addNumber(4)">4</button>
+            <button onclick="addNumber(5)">5</button>
+            <button onclick="addNumber(6)">6</button>
+            <button onclick="addNumber(7)">7</button>
+            <button onclick="addNumber(8)">8</button>
+            <button onclick="addNumber(9)">9</button>
+            <button onclick="clearPassword()">C</button>
+            <button onclick="addNumber(0)">0</button>
+            <button onclick="checkPassword()">OK</button>
+        </div>
+        <div class="error" id="error-msg">That's not it, my love. Try again.</div>
     </div>
-  </header>
 
-  <main>
-    <section id="about" class="section-padding">
-      <div class="container">
-        <h2 class="section-title">The Analytical Edge</h2>
-        <div class="about-card">
-          <p>
-            I bridge the gap between <strong>technical precision</strong> and creative storytelling. With a background in Engineering, I bring an analytical approach to video editing—focusing on viewer retention, pacing, and psychological hooks. I specialize in transforming raw footage into high-performance Reels and TikToks for creators who want to <strong>dominate the algorithm.</strong>
-          </p>
+    <div id="screen-2" class="screen">
+        <h2>Kantmena i3jbek</h2>
+        <p>Gadet lik wahed lhaja special liik</p>
+        <div style="font-size: 90px; margin: 20px 0; animation: floatSmooth 3s infinite;">🧸</div> 
+        <button class="btn" onclick="nextScreen(3, true, 3000)">Show Me!</button>
+        <button class="btn btn-secondary" onclick="nextScreen(5, false)">Mabghitsh 😒</button>
+    </div>
+
+    <div id="screen-3" class="screen">
+        <h2>Choose a Gift</h2>
+        <p>Pick a box to open...</p>
+        <div class="gift-container">
+            <div class="gift-box" onclick="openGift(1)">🎁</div>
+            <div class="gift-box" onclick="openGift(2)">💝</div>
+            <div class="gift-box" onclick="openGift(3)">💌</div>
+            <div class="gift-box" onclick="openGift(4)">🎬</div>
         </div>
-      </div>
-    </section>
+    </div>
 
-    <section id="services" class="section-padding grey-bg">
-      <div class="container">
-        <h2 class="section-title">Services</h2>
-        <div class="services-grid">
-          <div class="service-card">
-            <h3>The Growth Package</h3>
-            <p>5-10 High-retention Reels/Shorts per month designed for consistent reach.</p>
-          </div>
-          <div class="service-card highlight">
-            <h3>The Signature Edit</h3>
-            <p>Custom motion graphics, advanced sound design, and viral psychological hooks.</p>
-          </div>
-          <div class="service-card">
-            <h3>Bulk Editing</h3>
-            <p>Fast turnaround for podcast clips and long-form YouTube cutdowns.</p>
-          </div>
-        </div>
-        <p class="pricing-note">Starting at <strong>35€</strong> per video</p>
-      </div>
-    </section>
+    <div id="screen-4" class="screen">
+        <h2 id="gift-title">Surprise!</h2>
+        <div id="gift-content"></div>
+        <button class="btn btn-secondary" onclick="nextScreen(3, false)">Close</button>
+    </div>
 
-    <section id="projects" class="section-padding">
-      <div class="container">
-        <h2 class="section-title">Case Studies</h2>
-        <div class="video-grid">
-          <div class="video-card">
-            <div class="video-wrapper">
-              <iframe src="https://www.youtube.com/embed/fkgRaFFH06I" allowfullscreen></iframe>
-            </div>
-            <div class="video-info">
-              <h3>Business & Information Reel</h3>
-              <p>Focused on clean typography and fast-paced engagement.</p>
-            </div>
-          </div>
-          <div class="video-card">
-            <div class="video-wrapper">
-              <iframe src="https://www.youtube.com/embed/D4KANorMRqI" allowfullscreen></iframe>
-            </div>
-            <div class="video-info">
-              <h3>High-Energy Visual Effects (SFX)</h3>
-              <p>Showcasing advanced transitions, masking, and rhythm-syncing.</p>
-            </div>
-          </div>
-          <div class="video-card">
-            <div class="video-wrapper">
-              <iframe src="https://www.youtube.com/embed/QrVfpfqOnfE" allowfullscreen></iframe>
-            </div>
-            <div class="video-info">
-              <h3>Engagement Mastery</h3>
-              <p>Psychological retention editing for viral social content.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <div id="screen-5" class="screen">
+        <h2 style="font-size: 26px;">Mat9ediish therbi muhihi 😈</h2>
+        <img src="dudu-dudu-bubu.gif" class="content-image" style="max-width: 200px; margin: 20px auto; display: block;" alt="Evil cute bear">
+        <button class="btn" onclick="nextScreen(2, false)">Safi rje3i hna 😂</button>
+    </div>
 
-    <section id="contact" class="section-padding">
-      <div class="container">
-        <div class="contact-box">
-          <h2 class="section-title">Ready to grow your brand?</h2>
-          <p>Let’s talk about your project. Click below to send an email or DM me on Instagram for a custom quote.</p>
-          <div class="contact-flex">
-            <a href="mailto:khalilfreelance0@gmail.com" class="contact-btn">Send Email</a>
-            <a href="https://instagram.com/lil.katim" target="_blank" class="contact-btn outline">DM on Instagram</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
+</div>
 
-  <footer>
-    <p>© 2026 Khalil. Technical Precision meets Creative Editing.</p>
-  </footer>
-
+<script src="script.js"></script>
 </body>
 </html>
